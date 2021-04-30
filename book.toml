@@ -1,0 +1,7 @@
+[book]
+authors = ["oka"]
+language = "ja"
+multilingual = false
+src = "src"
+title = "octo-book"
+description = "『動かして学ぶ量子コンピュータプログラミング』 (タコ本) のやっていき記録"
