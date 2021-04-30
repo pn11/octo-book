@@ -104,7 +104,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">表紙</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">表紙</a></li><li class="chapter-item expanded "><a href="chap1.html"><strong aria-hidden="true">1.</strong> 1章 はじめに</a></li><li class="chapter-item expanded affix "><li class="part-title">I部 QPUプログラミング</li><li class="chapter-item expanded "><a href="chap2.html"><strong aria-hidden="true">2.</strong> 2章 単一キュビット</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -182,6 +182,43 @@
 </div>
 <p>このページは <a href="https://rust-lang.github.io/mdBook/">mdBook</a> で作っています。ソースコードは以下にあります。<br />
 <a href="https://github.com/pn11/octo-book">https://github.com/pn11/octo-book</a></p>
+<h1><a class="header" href="#1章-はじめに" id="1章-はじめに">1章 はじめに</a></h1>
+<ul>
+<li>QPU の説明</li>
+<li>QPU simulator の <a href="https://oreilly-qc.github.io/">QCEngine</a> の使い方
+<ul>
+<li>マウスホバーでその時点での状態が分かるの便利そう。</li>
+</ul>
+</li>
+<li>QPU 命令のリストアップ</li>
+<li>シミュレータの限界
+<ul>
+<li>量子ビットが1つ増えるごとに必要なメモリが2倍になるため、現実的には手元では26個、世界最大でも51個。</li>
+</ul>
+</li>
+<li>ハードウェア制限
+<ul>
+<li>現在世界最大のものは70量子ビット程度で誤り訂正を持たない (<a href="https://dojo.qulacs.org/ja/latest/notebooks/2.1_NISQ_and_long_term.html">NISQ</a>)。</li>
+<li>本書ではハードウェアのことは意識せず、理想的な論理量子ビットを仮定し、もっと高レイヤーのみ考える。</li>
+</ul>
+</li>
+<li>QPU と GPU はわりと特徴が共通している</li>
+</ul>
+<h1><a class="header" href="#2章-単一キュビット" id="2章-単一キュビット">2章 単一キュビット</a></h1>
+<ul>
+<li>円表示の説明</li>
+<li>QPU演算の説明
+<ul>
+<li>HAD (アダマール) 演算は重ね合わせ状態を作る演算で重要
+<ul>
+<li>円表示より行列で計算したほうが分かりやすい cf. <a href="https://eman-physics.net/quantum/computer3.html">1入力量子ゲート - EMANの量子力学</a></li>
+</ul>
+</li>
+<li>WRITE -&gt; HAD -&gt; READ でランダムビット生成器を作れる -&gt; <a href="https://oreilly-qc.github.io/?p=2-1">https://oreilly-qc.github.io/?p=2-1</a></li>
+<li>ランダムビットを8個に増やせばランダムバイト -&gt; <a href="https://oreilly-qc.github.io/?p=2-2">https://oreilly-qc.github.io/?p=2-2</a></li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
