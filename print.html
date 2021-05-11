@@ -205,8 +205,12 @@
 <li>QPU と GPU はわりと特徴が共通している</li>
 </ul>
 <h1><a class="header" href="#2章-単一キュビット" id="2章-単一キュビット">2章 単一キュビット</a></h1>
+<h2><a class="header" href="#22" id="22">2.2</a></h2>
 <ul>
 <li>円表示の説明</li>
+</ul>
+<h2><a class="header" href="#23" id="23">2.3</a></h2>
+<ul>
 <li>QPU演算の説明
 <ul>
 <li>HAD (アダマール) 演算は重ね合わせ状態を作る演算で重要
@@ -216,6 +220,26 @@
 </li>
 <li>WRITE -&gt; HAD -&gt; READ でランダムビット生成器を作れる -&gt; <a href="https://oreilly-qc.github.io/?p=2-1">https://oreilly-qc.github.io/?p=2-1</a></li>
 <li>ランダムビットを8個に増やせばランダムバイト -&gt; <a href="https://oreilly-qc.github.io/?p=2-2">https://oreilly-qc.github.io/?p=2-2</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#25" id="25">2.5</a></h2>
+<ul>
+<li>QPU 演算の組み合わせの例
+<ul>
+<li>NOT = HAD + PHASE(180) + HAD</li>
+<li>ROOT-of-NOT = HAD + PHASE(-90) + HAD<br />
+(なぜ90度ではなく-90度を定義としている？)
+<a href="https://oreilly-qc.github.io/?p=2-3">https://oreilly-qc.github.io/?p=2-3</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#26" id="26">2.6</a></h2>
+<ul>
+<li>暗号通信の例として量子スパイハンター
+<ul>
+<li>実際は暗号化はしていない。送ったメッセージが盗聴されているかどうかを検出する</li>
+<li>Web の例 <a href="https://oreilly-qc.github.io/?p=2-3">https://oreilly-qc.github.io/?p=2-3</a> よりも本のコードの方が意図を汲みとりやすい</li>
 </ul>
 </li>
 </ul>
