@@ -17,11 +17,11 @@
 - QPU 演算の組み合わせの例
   - NOT = HAD + PHASE(180) + HAD
   - ROOT-of-NOT = HAD + PHASE(-90) + HAD  
-    (なぜ90度ではなく-90度を定義としている？)
+    (なぜ90度ではなく-90度を定義としている？)  
     <https://oreilly-qc.github.io/?p=2-3>
 
 ## 2.6
 
 - 暗号通信の例として量子スパイハンター
   - 実際は暗号化はしていない。送ったメッセージが盗聴されているかどうかを検出する
-  - Web の例 <https://oreilly-qc.github.io/?p=2-3> よりも本のコードの方が意図を汲みとりやすい
+  - Web の例 <https://oreilly-qc.github.io/?p=2-4> よりも本のコードの方が意図を汲みとりやすい
