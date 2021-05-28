@@ -59,6 +59,8 @@
         {{#if mathjax_support}}
         <!-- MathJax -->
         <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <!-- define braket -->
+        \(\def\bra#1{\mathinner{\langle{#1}|}}\def\ket#1{\mathinner{|{#1}\rangle}}\def\braket#1{\mathinner{\langle{#1}\rangle}}\def\Bra#1{\left\langle#1\right|}\def\Ket#1{\left|#1\right\rangle}\)
         {{/if}}
     </head>
     <body>
