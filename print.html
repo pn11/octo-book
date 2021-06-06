@@ -283,6 +283,35 @@
 <li>N番目のキュビットに対する単一キュビット演算 (NOT, PHASE, HAD)は、円表示ではN個離れた「演算対象ペア」の円に適用される</li>
 <li>READ の場合、「演算対象ペア」の左側を半径を2乗して足し上げると出力が0になる確率。右側が1</li>
 </ul>
+<h3><a class="header" href="#34" id="34">3.4</a></h3>
+<ul>
+<li>キュビットが増えると円表示の円の数も増えるけど、パターンとして見ると意味があるかも？</li>
+</ul>
+<h3><a class="header" href="#35-cnot" id="35-cnot">3.5 CNOT</a></h3>
+<ul>
+<li>アダマールしてから CNOT をすると量子もつれ状態を生成できる
+<ul>
+<li>p. 49 の「これは意味のある結果です」は make sense の翻訳がおかしい？ (原書未確認)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#36" id="36">3.6</a></h3>
+<ul>
+<li>節題がだいぶ怪レい...</li>
+<li>p.50 QNRG -&gt; QRNG</li>
+<li><a href="https://oreilly-qc.github.io/?p=3-2">https://oreilly-qc.github.io/?p=3-2</a></li>
+</ul>
+<h3><a class="header" href="#37" id="37">3.7</a></h3>
+<ul>
+<li>CPHASE の場合、制御キュビットとターゲットは可換
+<ul>
+<li>なので演算の記号もそのように描く</li>
+<li>制御キュビットが \(\ket{1}\} のときに作用するという条件と、PHASE演算は相対位相だけ気にするのでターゲットキュビットの \(\ket{1}\} にのみ作用するという条件が同じため</li>
+</ul>
+</li>
+<li>Z=PHASE(180) が HAD と NOT で作れたように、 CZ=CPHASE(180) は HAD と CNOT で作れる</li>
+</ul>
+<h4><a class="header" href="#371-位相キックバック" id="371-位相キックバック">3.7.1 位相キックバック</a></h4>
 <h1><a class="header" href="#4章-量子テレポーテーション" id="4章-量子テレポーテーション">4章 量子テレポーテーション</a></h1>
 
                     </main>
