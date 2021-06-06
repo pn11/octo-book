@@ -240,7 +240,9 @@
 </ul>
 <h4><a class="header" href="#371-位相キックバック" id="371-位相キックバック">3.7.1 位相キックバック</a></h4>
 <ul>
-<li>何やってるのかよくわからん</li>
+<li><del>何やってるのかよくわからん</del></li>
+<li>Register 2が操作できるブーリアンだと思って、これが制御キュビットなので、 Register 2 の状態によって Register 1を制御できているとい動きになっている。</li>
+<li>Register 2 は操作の前後で変化しない</li>
 <li><a href="https://oreilly-qc.github.io/?p=3-3">https://oreilly-qc.github.io/?p=3-3</a></li>
 <li>register 分けるなら円表示も分けたほうが分かりやすい気がする</li>
 </ul>
@@ -252,12 +254,18 @@
 <h3><a class="header" href="#39-swap-and-cswap" id="39-swap-and-cswap">3.9 SWAP and CSWAP</a></h3>
 <ul>
 <li>CCNOT 3つで CSWAP を実装できる</li>
-<li>CSWAP を用いて2の乗算を実装できる？</li>
+<li>CSWAP を用いて2の乗算を実装できる？ (詳しくは5章、12章)</li>
 </ul>
 <h4><a class="header" href="#391-swap-test" id="391-swap-test">3.9.1 Swap Test</a></h4>
 <ul>
 <li>READ を使わずに2つのキュビットが同じ状態かどうかを判定できる</li>
 <li><a href="https://oreilly-qc.github.io/?p=3-4">https://oreilly-qc.github.io/?p=3-4</a></li>
+<li>input1 と input2 の状態が一致していたら <code>output.read()</code> の結果は必ず1になり、そうでない場合は状態の忠実度 (fidelity) に応じて0か1がランダムに得られる</li>
+<li>input1 と input2 は任意のベクトルなので、 (\ket{0}) (\ket{1})( だけじゃなく、 (\textrm{input1}=\textrm{input2}=1\over\sqrt{2}\ket{0}+1\over\sqrt{2}\ket{1}) でもちゃんと output1 が1になる </li>
+</ul>
+<h3><a class="header" href="#310" id="310">3.10</a></h3>
+<ul>
+<li>CNOT と他の演算を組み合わせて単一キュビット演算を多重キュビット演算にできることは分かったが、自分で思いつくのは難しそう</li>
 </ul>
 
                     </main>
