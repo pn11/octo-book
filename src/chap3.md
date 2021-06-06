@@ -58,4 +58,23 @@
 
 #### 3.7.1 位相キックバック
 
+- 何やってるのかよくわからん
+- <https://oreilly-qc.github.io/?p=3-3>
+- register 分けるなら円表示も分けたほうが分かりやすい気がする
 
+### 3.8 CCNOT (Toffoli Gate)
+
+- CNOT にさらに condition が追加されただけなので特に難しくない
+- [IBM Quantum Challenge 2021](https://challenges.quantum-computing.ibm.com/iqc21) の第一問に出てきたやつ
+
+### 3.9 SWAP and CSWAP
+ 
+- CCNOT 3つで CSWAP を実装できる
+- CSWAP を用いて2の乗算を実装できる？
+
+#### 3.9.1 Swap Test
+
+- READ を使わずに2つのキュビットが同じ状態かどうかを判定できる
+- <https://oreilly-qc.github.io/?p=3-4>
+ 
+ 
