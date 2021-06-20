@@ -89,3 +89,34 @@
 ### 3.11
 
 - <https://oreilly-qc.github.io/?p=3-6>
+- このハンズオンは特に新しい内容は出てこないが、 PHASE 演算でもつれの割合を操作できることが確認できる
+
+以下のように for を使って多数回試行できる (daiju 氏)
+
+```javascript
+qc.reset(2);
+var a = qint.new(1, 'a');
+var b = qint.new(1, 'b');
+
+var c = [0, 0, 0, 0];
+for (var i =0; i < 1000; i++) {
+    qc.write(0);
+    a.had();
+    // now prob of a is 50%
+    b.had();
+    b.phase(45);
+    b.had();
+    // now prob of b is 15%
+    b.cnot(a);
+    // Now, you can read *either*
+    // qubit and get 50% prob.
+    // If the result is 0, then
+    // the prob of the *remaining*
+    // qubit is 15%, else it's 85%
+    var a_result = a.read();
+    var b_result = b.read();
+    c[a_result + b_result * 2] += 1;
+}
+# 00, 01, 10, 11 の各状態の頻度をプリント
+qc.print(c + '\n')
+```
