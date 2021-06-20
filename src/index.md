@@ -7,6 +7,5 @@
     <img src="image/9784873119199_600.jpg" />
 </div>
 
-
 このページは [mdBook](https://rust-lang.github.io/mdBook/) で作っています。ソースコードは以下にあります。  
 <https://github.com/pn11/octo-book>
