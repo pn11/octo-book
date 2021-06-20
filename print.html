@@ -379,7 +379,8 @@ qc.print(c + '\n')
 <li><a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> を IBM Q で実行すると量子テレポーテーションを行えてパイオニアになれる！</li>
 <li>IBM QX での実行結果の例 (Yorktown を選ぶと早く実行される模様。Manilla では全然始まらなかった。)<br />
 <img src="image/4-1_-_IBM_Quantum-Yorktown.png" alt="Yorktown での実行結果" /></li>
-<li>図4-1 で配線がやたらうねうねしているのはなぜ? また、 0-4 や 1-3 などが直接つながっていないのはなぜ?</li>
+<li>図4-1 で配線がやたらうねうねしているのはなぜ？<br />
+また、 0-4 や 1-3 などが直接つながっていないのはなぜ？</li>
 <li>ep は entangled pair と思われる</li>
 <li>p.71 の日本語がとても分かりにくい。4章全部を読んでから読むと意味が分かる。
 <ul>
@@ -394,7 +395,7 @@ qc.print(c + '\n')
 <li>4.2 では <a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> の QCEngine のプログラムで
 <pre><code class="language-javascript">var bob_is_asleep = true;
 </code></pre>
-とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないため)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</li>
+とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</li>
 <li>p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。</li>
 <li>ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。</li>
 </ul>
@@ -420,9 +421,15 @@ qc.print(c + '\n')
 document.getElementById(&quot;circle_canvas&quot;).height=500;
 </code></pre>
 </li>
+<li>
+<p>エラー率12%の場合のハエ<br />
+<img src="image/fly_error0.12.png" alt="エラー率12%の場合のハエ" /></p>
+</li>
+<li>
+<p>エラー率50%の場合のハエ<br />
+<img src="image/fly_error0.5.png" alt="エラー率50%の場合のハエ" /></p>
+</li>
 </ul>
-<p><img src="image/fly_error0.12.png" alt="エラー率12%の場合のハエ" /></p>
-<p><img src="image/fly_error0.5.png" alt="エラー率50%の場合のハエ" /></p>
 
                     </main>
 
