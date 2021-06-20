@@ -117,6 +117,6 @@ for (var i =0; i < 1000; i++) {
     var b_result = b.read();
     c[a_result + b_result * 2] += 1;
 }
-# 00, 01, 10, 11 の各状態の頻度をプリント
+// 00, 01, 10, 11 の各状態の頻度をプリント
 qc.print(c + '\n')
 ```
