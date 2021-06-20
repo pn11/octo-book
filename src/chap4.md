@@ -5,7 +5,8 @@
 - <https://oreilly-qc.github.io/?p=4-1> を IBM Q で実行すると量子テレポーテーションを行えてパイオニアになれる！
 - IBM QX での実行結果の例 (Yorktown を選ぶと早く実行される模様。Manilla では全然始まらなかった。)  
   ![Yorktown での実行結果](image/4-1_-_IBM_Quantum-Yorktown.png)
-- 図4-1 で配線がやたらうねうねしているのはなぜ? また、 0-4 や 1-3 などが直接つながっていないのはなぜ?
+- 図4-1 で配線がやたらうねうねしているのはなぜ？  
+  また、 0-4 や 1-3 などが直接つながっていないのはなぜ？
 - ep は entangled pair と思われる
 - p.71 の日本語がとても分かりにくい。4章全部を読んでから読むと意味が分かる。
   - 1段落目の最後の方は、アリスが READ した Alice と ep の値を Ethernet などでボブに送り、 ボブはその情報を使って Bob が4つの状態のうちどれだったかを復元できる、ということを言っている。
@@ -18,7 +19,7 @@
   ```javascript
   var bob_is_asleep = true;
   ```
-  とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないため)。そのため、recieve の部分で `NOT` と `PHASE(180)` は必ず実行される。
+  とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で `NOT` と `PHASE(180)` は必ず実行される。
 - p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。
 - ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。
 
@@ -42,7 +43,7 @@
   document.getElementById("circle_div").style.height='500px';
   document.getElementById("circle_canvas").height=500;
   ```
-
-![エラー率12%の場合のハエ](image/fly_error0.12.png)
-
-![エラー率50%の場合のハエ](image/fly_error0.5.png)
+- エラー率12%の場合のハエ  
+  ![エラー率12%の場合のハエ](image/fly_error0.12.png)
+- エラー率50%の場合のハエ  
+  ![エラー率50%の場合のハエ](image/fly_error0.5.png)
