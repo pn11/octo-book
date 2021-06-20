@@ -7,6 +7,7 @@
 
 ## 開発用情報
 
+1. Docker を起動する
 1. VSCode で開く
 1. コマンドパレットで `Reopen in Container` を実行 (要 remote containers extension)
 1. ターミナルで `mdbook serve` を実行
