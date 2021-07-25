@@ -471,6 +471,12 @@ document.getElementById(&quot;circle_canvas&quot;).height=500;
 <li>乗算は可逆にするのが困難</li>
 <li>可逆な演算の例: 二乗してから足す <a href="https://oreilly-qc.github.io/?p=5-3">https://oreilly-qc.github.io/?p=5-3</a></li>
 <li><code>b &lt;- b*b</code> は不可逆だが、 <code>a += b*b</code> の逆演算は <code>a -= b*b</code> で、可逆</li>
+<li>図の5-10 は、以下のように理解できる。<br />
+\[ b = b_1 + 2b_2 とおくと (bを2進数で表したときの1桁目をb1、2桁目をb2)、 \\
+b^2 &amp;= {b_1}^2 + 4{b_1}{b_2} + 4{b_2}^2 \\
+&amp;= {b_1} + 4{b_1}{b_2} + 4{b_2} +  (0と1は2乗しても変わらないため)\\ 
+\]<br />
+最初の４つの演算は \(+=b_1\) を表す。次の4つは \(+=2b_1b_2\) を2回やっている (\(b_1b_2\)は\(b_1, b_2\)がそれぞれ0または1であることから\(b_1\cat b_2\)と同じ)。最後の2つが\(+=4b_2\)に対応。</li>
 </ul>
 <h1><a class="header" href="#6章-振幅増幅" id="6章-振幅増幅">6章 振幅増幅</a></h1>
 <h1><a class="header" href="#7章-qft量子フーリエ変換" id="7章-qft量子フーリエ変換">7章 QFT:量子フーリエ変換</a></h1>
