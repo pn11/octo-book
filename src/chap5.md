@@ -37,8 +37,8 @@
 - 図5-10 は、以下のように理解できる。  
   \\(b = b_1 + 2b_2\\) とおくと (\\(b\\)を2進数で表したときの1桁目を\\(b_1\\)、2桁目を\\(b_2\\))、  
   \\[
-      b^2 &= {b_1}^2 + 4{b_1}{b_2} + 4{b_2}^2 \\\\
-          &= {b_1} + 4{b_1}{b_2} + 4{b_2}
+      b^2 = {b_1}^2 + 4{b_1}{b_2} + 4{b_2}^2 \\\\
+          = {b_1} + 4{b_1}{b_2} + 4{b_2}
   \\]  
   (0と1は2乗しても変わらないため、\\({b_1}^2 = b_1, {b_2}^2 = b_2 \\)  
   図5-10の最初の４つの演算は \\(+=b_1\\) を表す。次の4つは \\(+=2b_1b_2\\) を2回やっている (\\(b_1b_2\\)は\\(b_1, b_2\\)がそれぞれ0または1であることから\\(b_1\text{AND} b_2\\)と同じ)。最後の2つが\\(+=4b_2\\)に対応。
@@ -47,8 +47,67 @@
 
 ## 5.6
 
-- <https://oreilly-qc.github.io/?p=5-4>
+### 5.6.1
 
+- <https://oreilly-qc.github.io/?p=5-4>  
+  3より上か下かを判定するために、-3して符号のビットで判定している
+
+
+## 5.6.2
+
+- <https://oreilly-qc.github.io/?p=5-5>
  
+ ## 5.7
+ 
+ - abs の実装例はないようなので自分たちでやってみた。
+-1にabsを適用する場合  
+
+```javascript
+// Initialize
+var num_qubits = 4;
+qc.reset(num_qubits);
+var a = qint.new(3, 'a');
+var b = qint.new(1, 'b');
+// prepare
+qc.label('prepare');
+a.write(7);
+b.write(0);
+qc.nop();
+qc.label('');
+qc.nop();
+qc.cnot(0x8, 0x4);
+
+qc.cnot(0x1|0x2|0x4, 0x8);
+qc.cnot(0x4, 0x1|0x2|0x8);
+qc.cnot(0x2, 0x1|0x8);
+qc.cnot(0x1, 0x8);
+```
+
+1と-1の重ね合わせにabsを適用する場合。
+
+```javascript
+// Initialize
+var num_qubits = 4;
+qc.reset(num_qubits);
+var a = qint.new(3, 'a');
+var b = qint.new(1, 'b');
+// prepare
+qc.label('prepare');
+a.write(0);
+b.write(0);
+qc.nop();
+qc.label('');
+qc.nop();
+qc.had(0x2);
+a.subtract(1);
+qc.nop();
+
+qc.cnot(0x8, 0x4);
+
+qc.cnot(0x1|0x2|0x4, 0x8);
+qc.cnot(0x4, 0x1|0x2|0x8);
+qc.cnot(0x2, 0x1|0x8);
+qc.cnot(0x1, 0x8);
+```
 
 (ここまで 2021/07/25)
