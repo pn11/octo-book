@@ -43,6 +43,17 @@
   document.getElementById("circle_div").style.height='500px';
   document.getElementById("circle_canvas").height=500;
   ```
+  
+  ブックマークレットにする場合は、
+  
+  ```javascript
+  javascript:document.getElementById("circle_div").style.height='500px';document.getElementById("circle_canvas").height=500;
+  ```
+  
+  登録するには以下のリンクをブックマークバーにドラッグする。
+  
+  [QCEngineブックマークレット](javascript:document.getElementById("circle_div").style.height='500px';document.getElementById("circle_canvas").height=500;)
+  
 - エラー率12%の場合のハエ  
   ![エラー率12%の場合のハエ](image/fly_error0.12.png)
 - エラー率50%の場合のハエ  
