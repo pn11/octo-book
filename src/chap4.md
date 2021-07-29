@@ -16,9 +16,11 @@
 
 - ブラウザ上で円表示を2行でいい感じに表示するには円を拡大したりする。
 - 4.2 では <https://oreilly-qc.github.io/?p=4-1> の QCEngine のプログラムで  
+  
   ```javascript
   var bob_is_asleep = true;
   ```
+  
   とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で `NOT` と `PHASE(180)` は必ず実行される。
 - p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。
 - ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。
@@ -49,7 +51,10 @@
   ```javascript
   javascript:document.getElementById("circle_div").style.height='500px';document.getElementById("circle_canvas").height=500;
   ```
- 
+
+  ブックマークレットについてはこの辺の記事を参照  
+  [ブックマークレットの仕組みと使い方 | ライフハッカー［日本版］](https://www.lifehacker.jp/2013/04/130402bookmarklet_matome.html#01)
+
 - エラー率12%の場合のハエ  
   ![エラー率12%の場合のハエ](image/fly_error0.12.png)
 - エラー率50%の場合のハエ  

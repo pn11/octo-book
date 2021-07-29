@@ -41,7 +41,7 @@
           = {b_1} + 4{b_1}{b_2} + 4{b_2}
   \\]  
   (0と1は2乗しても変わらないため、\\({b_1}^2 = b_1, {b_2}^2 = b_2 \\) )  
-  図5-10の最初の４つの演算は \\(+=b_1\\) を表す。次の4つは \\(+=2b_1b_2\\) を2回やっている (\\(b_1b_2\\)は\\(b_1, b_2\\)がそれぞれ0または1であることから\\(b_1\text{AND} b_2\\)と同じ)。最後の2つが\\(+=4b_2\\)に対応。
+  図5-10の最初の４つの演算は \\(+=b_1\\) を表す。次の4つは \\(+=2b_1b_2\\) を2回やっている (\\(b_1b_2\\)は\\(b_1, b_2\\)がそれぞれ0または1であることから\\(b_1~\text{AND} b_2~\\)と同じ)。最後の2つが\\(+=4b_2\\)に対応。
 
 (ここまで 2021/07/3)
 
@@ -52,62 +52,81 @@
 - <https://oreilly-qc.github.io/?p=5-4>  
   3より上か下かを判定するために、-3して符号のビットで判定している
 
-
-## 5.6.2
+### 5.6.2
 
 - <https://oreilly-qc.github.io/?p=5-5>
- 
- ## 5.7
- 
- - abs の実装例はないようなので自分たちでやってみた。
--1にabsを適用する場合  
+- 位相に情報をエンコードするのに CPHASE や CZ を使っている
+- 書籍中の JavaScript 中の `b.not(~1)` のような部分が一見分かりにくい。まず `~1` は、1のビット演算の NOT、 つまり 32bit だったら一番下だけ0で、それ以外の31桁すべてが1になっている数を表す。なので、`b.not(~1)` は `b.not(1...10)` のようなイメージ。つまりレジスタ b に対して QPU の NOT 演算を、1つ目の qubit 以外全てに適用するという操作。  
+  今の場合、bは二桁しかないので、`~1` は `10` と等価。
 
-```javascript
-// Initialize
-var num_qubits = 4;
-qc.reset(num_qubits);
-var a = qint.new(3, 'a');
-var b = qint.new(1, 'b');
-// prepare
-qc.label('prepare');
-a.write(7);
-b.write(0);
-qc.nop();
-qc.label('');
-qc.nop();
-qc.cnot(0x8, 0x4);
+## 5.7
 
-qc.cnot(0x1|0x2|0x4, 0x8);
-qc.cnot(0x4, 0x1|0x2|0x8);
-qc.cnot(0x2, 0x1|0x8);
-qc.cnot(0x1, 0x8);
-```
+- abs の実装例はないようなので自分たちでやってみた。
+  - -1 (0b111) にabsを適用する場合。
 
-1と-1の重ね合わせにabsを適用する場合。
+    ```javascript
+    // Initialize
+    var num_qubits = 4;
+    qc.reset(num_qubits);
+    var a = qint.new(3, 'a');
+    var b = qint.new(1, 'b');
+    // prepare
+    qc.label('prepare');
+    a.write(0b111);
+    b.write(0b0);
+    
+    qc.nop();
+    
+    qc.label('XOR = CNOT');
+    qc.nop();
+    qc.nop();
+    qc.cnot(0x8, 0x4);
+    qc.nop();
+    qc.nop();
+    
+    qc.label('2の補数');
+    qc.cnot(0x1|0x2|0x4, 0x8);
+    qc.cnot(0x4, 0x1|0x2|0x8);
+    qc.cnot(0x2, 0x1|0x8);
+    qc.cnot(0x1, 0x8);
+    ```
 
-```javascript
-// Initialize
-var num_qubits = 4;
-qc.reset(num_qubits);
-var a = qint.new(3, 'a');
-var b = qint.new(1, 'b');
-// prepare
-qc.label('prepare');
-a.write(0);
-b.write(0);
-qc.nop();
-qc.label('');
-qc.nop();
-qc.had(0x2);
-a.subtract(1);
-qc.nop();
+    初期状態が \\(\ket{a =  -1 = \textrm{0b111},~b=0=\textrm{0b0}} = \ket{0111} = \ket{7} \\) で、終状態が \\(\ket{a = 1 = \textrm{0b001},~b=1=\textrm{0b1}} = \ket{1001} = \ket{9} \\) となっている。
 
-qc.cnot(0x8, 0x4);
+    ![abs(-1)](image/5-7-1.png)
 
-qc.cnot(0x1|0x2|0x4, 0x8);
-qc.cnot(0x4, 0x1|0x2|0x8);
-qc.cnot(0x2, 0x1|0x8);
-qc.cnot(0x1, 0x8);
-```
+  - 1と-1の重ね合わせにabsを適用する場合。  
+
+    ```javascript
+    var num_qubits = 4;
+    qc.reset(num_qubits);
+    var a = qint.new(3, 'a');
+    var b = qint.new(1, 'b');
+    // prepare
+    qc.label('prepare');
+    a.write(0);
+    b.write(0);
+    qc.nop();
+    qc.label('｜0〉+｜2〉');
+    qc.nop();
+    qc.had(0x2);
+    qc.nop();
+    qc.label('subtract(1)');
+    a.subtract(1);
+    qc.nop();
+    
+    qc.label('abs');
+    
+    qc.cnot(0x8, 0x4);
+    
+    qc.cnot(0x1|0x2|0x4, 0x8);
+    qc.cnot(0x4, 0x1|0x2|0x8);
+    qc.cnot(0x2, 0x1|0x8);
+    qc.cnot(0x1, 0x8);
+    ```
+
+    はじめに \\(\ket{0}\\) と \\(\ket{2}\\) の重ね合わせを作ってから \\(-1\\) すると \\(\ket{-1} = \ket{7}\\) と \\(\ket{1}\\) の重ね合わせになる。これに abs を適用すると \\(\ket{1}=\ket{0001}\\) と \\(\ket{9}=\ket{1001}\\) の重ね合わせになる。このとき、 \\(a\\) に対応する部分はどちらの状態でも \\(001\\) で、絶対値は等しい。 (-1と1の重ね合わせを作る方法を思いついたふぇるみうむ氏かしこい！)
+
+    ![abs(-1, 1)](image/5-7-2.png)
 
 (ここまで 2021/07/25)
