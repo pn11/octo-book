@@ -391,13 +391,21 @@ qc.print(c + '\n')
 </ul>
 <h2><a class="header" href="#42" id="42">4.2</a></h2>
 <ul>
-<li>ブラウザ上で円表示を2行でいい感じに表示するには円を拡大したりする。</li>
-<li>4.2 では <a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> の QCEngine のプログラムで
+<li>
+<p>ブラウザ上で円表示を2行でいい感じに表示するには円を拡大したりする。</p>
+</li>
+<li>
+<p>4.2 では <a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> の QCEngine のプログラムで</p>
 <pre><code class="language-javascript">var bob_is_asleep = true;
 </code></pre>
-とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</li>
-<li>p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。</li>
-<li>ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。</li>
+<p>とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</p>
+</li>
+<li>
+<p>p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。</p>
+</li>
+<li>
+<p>ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。</p>
+</li>
 </ul>
 <h2><a class="header" href="#43" id="43">4.3</a></h2>
 <ul>
@@ -423,6 +431,8 @@ document.getElementById(&quot;circle_canvas&quot;).height=500;
 <p>ブックマークレットにする場合は、</p>
 <pre><code class="language-javascript">javascript:document.getElementById(&quot;circle_div&quot;).style.height='500px';document.getElementById(&quot;circle_canvas&quot;).height=500;
 </code></pre>
+<p>ブックマークレットについてはこの辺の記事を参照<br />
+<a href="https://www.lifehacker.jp/2013/04/130402bookmarklet_matome.html#01">ブックマークレットの仕組みと使い方 | ライフハッカー［日本版］</a></p>
 </li>
 <li>
 <p>エラー率12%の場合のハエ<br />
@@ -478,7 +488,7 @@ b^2 = {b_1}^2 + 4{b_1}{b_2} + 4{b_2}^2 \\
 = {b_1} + 4{b_1}{b_2} + 4{b_2}
 \]<br />
 (0と1は2乗しても変わらないため、\({b_1}^2 = b_1, {b_2}^2 = b_2 \) )<br />
-図5-10の最初の４つの演算は \(+=b_1\) を表す。次の4つは \(+=2b_1b_2\) を2回やっている (\(b_1b_2\)は\(b_1, b_2\)がそれぞれ0または1であることから\(b_1\text{AND} b_2\)と同じ)。最後の2つが\(+=4b_2\)に対応。</li>
+図5-10の最初の４つの演算は \(+=b_1\) を表す。次の4つは \(+=2b_1b_2\) を2回やっている (\(b_1b_2\)は\(b_1, b_2\)がそれぞれ0または1であることから\(b_1~\text{AND} b_2~\)と同じ)。最後の2つが\(+=4b_2\)に対応。</li>
 </ul>
 <p>(ここまで 2021/07/3)</p>
 <h2><a class="header" href="#56" id="56">5.6</a></h2>
@@ -487,15 +497,19 @@ b^2 = {b_1}^2 + 4{b_1}{b_2} + 4{b_2}^2 \\
 <li><a href="https://oreilly-qc.github.io/?p=5-4">https://oreilly-qc.github.io/?p=5-4</a><br />
 3より上か下かを判定するために、-3して符号のビットで判定している</li>
 </ul>
-<h2><a class="header" href="#562" id="562">5.6.2</a></h2>
+<h3><a class="header" href="#562" id="562">5.6.2</a></h3>
 <ul>
 <li><a href="https://oreilly-qc.github.io/?p=5-5">https://oreilly-qc.github.io/?p=5-5</a></li>
+<li>位相に情報をエンコードするのに CPHASE や CZ を使っている</li>
+<li>書籍中の JavaScript 中の <code>b.not(~1)</code> のような部分が一見分かりにくい。まず <code>~1</code> は、1のビット演算の NOT、 つまり 32bit だったら一番下だけ0で、それ以外の31桁すべてが1になっている数を表す。なので、<code>b.not(~1)</code> は <code>b.not(1...10)</code> のようなイメージ。つまりレジスタ b に対して QPU の NOT 演算を、1つ目の qubit 以外全てに適用するという操作。<br />
+今の場合、bは二桁しかないので、<code>~1</code> は <code>10</code> と等価。</li>
 </ul>
 <h2><a class="header" href="#57" id="57">5.7</a></h2>
 <ul>
 <li>abs の実装例はないようなので自分たちでやってみた。
--1にabsを適用する場合</li>
-</ul>
+<ul>
+<li>
+<p>-1 (0b111) にabsを適用する場合。</p>
 <pre><code class="language-javascript">// Initialize
 var num_qubits = 4;
 qc.reset(num_qubits);
@@ -503,21 +517,30 @@ var a = qint.new(3, 'a');
 var b = qint.new(1, 'b');
 // prepare
 qc.label('prepare');
-a.write(7);
-b.write(0);
+a.write(0b111);
+b.write(0b0);
+
 qc.nop();
-qc.label('');
+
+qc.label('XOR = CNOT');
+qc.nop();
 qc.nop();
 qc.cnot(0x8, 0x4);
+qc.nop();
+qc.nop();
 
+qc.label('2の補数');
 qc.cnot(0x1|0x2|0x4, 0x8);
 qc.cnot(0x4, 0x1|0x2|0x8);
 qc.cnot(0x2, 0x1|0x8);
 qc.cnot(0x1, 0x8);
 </code></pre>
+<p>初期状態が \(\ket{a =  -1 = \textrm{0b111},~b=0=\textrm{0b0}} = \ket{0111} = \ket{7} \) で、終状態が \(\ket{a = 1 = \textrm{0b001},~b=1=\textrm{0b1}} = \ket{1001} = \ket{9} \) となっている。</p>
+<p><img src="image/5-7-1.png" alt="abs(-1)" /></p>
+</li>
+<li>
 <p>1と-1の重ね合わせにabsを適用する場合。</p>
-<pre><code class="language-javascript">// Initialize
-var num_qubits = 4;
+<pre><code class="language-javascript">var num_qubits = 4;
 qc.reset(num_qubits);
 var a = qint.new(3, 'a');
 var b = qint.new(1, 'b');
@@ -526,11 +549,15 @@ qc.label('prepare');
 a.write(0);
 b.write(0);
 qc.nop();
-qc.label('');
+qc.label('｜0〉+｜2〉');
 qc.nop();
 qc.had(0x2);
+qc.nop();
+qc.label('subtract(1)');
 a.subtract(1);
 qc.nop();
+
+qc.label('abs');
 
 qc.cnot(0x8, 0x4);
 
@@ -539,9 +566,19 @@ qc.cnot(0x4, 0x1|0x2|0x8);
 qc.cnot(0x2, 0x1|0x8);
 qc.cnot(0x1, 0x8);
 </code></pre>
+<p>はじめに \(\ket{0}\) と \(\ket{2}\) の重ね合わせを作ってから \(-1\) すると \(\ket{-1} = \ket{7}\) と \(\ket{1}\) の重ね合わせになる。これに abs を適用すると \(\ket{1}=\ket{0001}\) と \(\ket{9}=\ket{1001}\) の重ね合わせになる。このとき、 \(a\) に対応する部分はどちらの状態でも \(001\) で、絶対値は等しい。 (-1と1の重ね合わせを作る方法を思いついたふぇるみうむ氏かしこい！)</p>
+<p><img src="image/5-7-2.png" alt="abs(-1, 1)" /></p>
+</li>
+</ul>
+</li>
+</ul>
 <p>(ここまで 2021/07/25)</p>
 <h1><a class="header" href="#6章-振幅増幅" id="6章-振幅増幅">6章 振幅増幅</a></h1>
 <h1><a class="header" href="#7章-qft量子フーリエ変換" id="7章-qft量子フーリエ変換">7章 QFT:量子フーリエ変換</a></h1>
+<p>参考になりそうな記事</p>
+<ul>
+<li><a href="https://qiita.com/N-H-Shimada/items/335580d208b6126f4c88">量子フーリエ変換 自分用まとめ - Qiita</a></li>
+</ul>
 <h1><a class="header" href="#8章-量子位相推定" id="8章-量子位相推定">8章 量子位相推定</a></h1>
 <h1><a class="header" href="#9章-データの量子表現" id="9章-データの量子表現">9章 データの量子表現</a></h1>
 

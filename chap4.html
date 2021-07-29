@@ -193,13 +193,21 @@
 </ul>
 <h2><a class="header" href="#42" id="42">4.2</a></h2>
 <ul>
-<li>ブラウザ上で円表示を2行でいい感じに表示するには円を拡大したりする。</li>
-<li>4.2 では <a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> の QCEngine のプログラムで
+<li>
+<p>ブラウザ上で円表示を2行でいい感じに表示するには円を拡大したりする。</p>
+</li>
+<li>
+<p>4.2 では <a href="https://oreilly-qc.github.io/?p=4-1">https://oreilly-qc.github.io/?p=4-1</a> の QCEngine のプログラムで</p>
 <pre><code class="language-javascript">var bob_is_asleep = true;
 </code></pre>
-とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</li>
-<li>p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。</li>
-<li>ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。</li>
+<p>とした場合であることに注意。この場合、ボブが寝ているため、アリスからイーサネット経由で古典ビットを送ることはない (IBM QX が feed forward に対応していないためそれに合わせている)。そのため、recieve の部分で <code>NOT</code> と <code>PHASE(180)</code> は必ず実行される。</p>
+</li>
+<li>
+<p>p. 77 のステップ4で「HADまたはPHASE(180)」とあるのは、「NOTまたはPHASE(180)」の誤り。p.80 の「HADとPHASE(180)」も同様。</p>
+</li>
+<li>
+<p>ステップ5 (verify) で、prep payload の逆演算を行うとシミュレータでは必ず bob=0 となる。実機ではエラーが起こる可能性がある。</p>
+</li>
 </ul>
 <h2><a class="header" href="#43" id="43">4.3</a></h2>
 <ul>
@@ -225,6 +233,8 @@ document.getElementById(&quot;circle_canvas&quot;).height=500;
 <p>ブックマークレットにする場合は、</p>
 <pre><code class="language-javascript">javascript:document.getElementById(&quot;circle_div&quot;).style.height='500px';document.getElementById(&quot;circle_canvas&quot;).height=500;
 </code></pre>
+<p>ブックマークレットについてはこの辺の記事を参照<br />
+<a href="https://www.lifehacker.jp/2013/04/130402bookmarklet_matome.html#01">ブックマークレットの仕組みと使い方 | ライフハッカー［日本版］</a></p>
 </li>
 <li>
 <p>エラー率12%の場合のハエ<br />
