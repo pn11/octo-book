@@ -2,6 +2,7 @@
 
 - 公開ページ: <https://pn11.github.io/octo-book/>
 - GitHub Pages 用 ブランチ: <https://github.com/pn11/octo-book/tree/gh-pages>
+  - このブランチは [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) が作ったもの
 - GitHub Actions: <https://github.com/pn11/octo-book/blob/master/.github/workflows/gh-pages.yml>
 
 ## 開発用情報
