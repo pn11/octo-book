@@ -3,7 +3,7 @@ authors = ["oka"]
 language = "ja"
 multilingual = false
 src = "src"
-title = "octo-book"
+title = "タコ本のやっていき記録"
 description = "『動かして学ぶ量子コンピュータプログラミング』 (タコ本) のやっていき記録"
 
 [output.html]
