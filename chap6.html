@@ -176,9 +176,42 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#6章-振幅増幅" id="6章-振幅増幅">6章 振幅増幅</a></h1>
+<h2><a class="header" href="#61" id="61">6.1</a></h2>
 <ul>
-<li><a href="https://nbviewer.jupyter.org/github/hinohi/quantum-note/blob/main/6-amplitude-amplification.ipynb">Jupyter Notebook Viewer</a></li>
+<li>振幅増幅 (amplitude apmlification) は位相差を振幅の差に変換することで READ しやすくする</li>
+<li><a href="https://oreilly-qc.github.io/?p=6-1">https://oreilly-qc.github.io/?p=6-1</a></li>
+<li>mirror サブルーチン = Grover アルゴリズム</li>
 </ul>
+<h2><a class="header" href="#62-63" id="62-63">6.2, 6.3</a></h2>
+<ul>
+<li><a href="https://oreilly-qc.github.io/?p=6-2">https://oreilly-qc.github.io/?p=6-2</a></li>
+<li>振幅増幅を繰り返し行うと結果は周期的になる</li>
+<li>最適な反復回数は \(N_{AA} = \lfloor { \pi \sqrt{2^n} \over 4 } \rfloor \) になるとのことだが、これは解析的に出るのか、経験式なのかよく分からない。</li>
+<li>Daiju 氏による補足ノート <a href="https://nbviewer.jupyter.org/github/hinohi/quantum-note/blob/main/6-amplitude-amplification.ipynb">hinohi/quantum-note/6-amplitude-amplification.ipynb</a></li>
+</ul>
+<p>(ここまで 2021/08/07)</p>
+<h2><a class="header" href="#64" id="64">6.4</a></h2>
+<ul>
+<li><a href="https://oreilly-qc.github.io/?p=6-2">https://oreilly-qc.github.io/?p=6-2</a></li>
+<li>位相差がある成分が複数の場合の増幅も考えることができる</li>
+<li>相対位相なので、半数の状態が反転しているような場合は状態が変わらず、増幅できない</li>
+<li>複数の場合の 最適な反復回数は \(N_{AA} = \lfloor { {\pi \over 4} {\sqrt{2^n} \over m} } \rfloor \)</li>
+</ul>
+<h2><a class="header" href="#65" id="65">6.5</a></h2>
+<ul>
+<li>振幅増幅の応用例
+<ul>
+<li>振幅増幅と量子フーリエ変換を組み合わせて量子和推定 (quantum sum estimation) (11章) に使える</li>
+<li>振幅増幅は boolean satisfiability (SAT) 問題の高速化に使える。ここの計算量の記述は日本語が怪しいので調べたほうがよさそう</li>
+</ul>
+</li>
+</ul>
+<h2><a class="header" href="#66" id="66">6.6</a></h2>
+<ul>
+<li>「際」→「差異」</li>
+<li>振幅増幅を感覚的に解説すると、重心を求めてそこからの距離で増幅するような感じ。たしかにグローバーにはアダマールが入っているので、平均しているような感じがある？(適当)</li>
+</ul>
+<p>(ここまで 2021/08/22)</p>
 
                     </main>
 

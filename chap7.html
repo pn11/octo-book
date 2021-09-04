@@ -176,7 +176,63 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#7章-qft量子フーリエ変換" id="7章-qft量子フーリエ変換">7章 QFT:量子フーリエ変換</a></h1>
-<p>参考になりそうな記事</p>
+<h2><a class="header" href="#71" id="71">7.1</a></h2>
+<ul>
+<li><a href="https://oreilly-qc.github.io/?p=7-1">https://oreilly-qc.github.io/?p=7-1</a></li>
+</ul>
+<h2><a class="header" href="#72" id="72">7.2</a></h2>
+<ul>
+<li>ふぇるみうむ氏おすすめのフーリエ変換の資料 → <a href="http://www.ic.is.tohoku.ac.jp/%7Eswk/lecture/yaruodsp/main.html">やる夫で学ぶディジタル信号処理</a></li>
+</ul>
+<h2><a class="header" href="#73" id="73">7.3</a></h2>
+<ul>
+<li><a href="https://oreilly-qc.github.io/?p=7-2">https://oreilly-qc.github.io/?p=7-2</a></li>
+<li>QFT は可逆なので in-place で実行できる。逆変換は <code>invQFT</code> でできた (<a href="#7512">7.5.1.2</a>で出てきた)。<br />
+<img src="image/7-3_invQFT.png" alt="invQFT" /></li>
+<li><a href="https://oreilly-qc.github.io/?p=7-3">https://oreilly-qc.github.io/?p=7-3</a> は 7-2 と一緒。</li>
+</ul>
+<h2><a class="header" href="#74" id="74">7.4</a></h2>
+<ul>
+<li>8バイト = 64ビット = 倍精度浮動小数点数 だけど、普通ビットで表すことが多い気がするので一瞬戸惑った</li>
+<li>入力状態が実数だと mirror image が現れる</li>
+<li><a href="https://oreilly-qc.github.io/?p=7-5">https://oreilly-qc.github.io/?p=7-5</a> は <a href="chap4.html#45">4.5</a> に書いたブックマークレットを使うときれいに見える。</li>
+</ul>
+<h2><a class="header" href="#75" id="75">7.5</a></h2>
+<h3><a class="header" href="#751" id="751">7.5.1</a></h3>
+<ul>
+<li>FFT の計算量は \(\mathcal{O}(N \log N) \) (\(N\)は標本数) なので、\(N = 2 ^n\) を代入すると \(\mathcal{O}(n2^n) \)</li>
+<li>QFT の場合は \(\mathcal{O}(m^2) \) から逆算すると恐らく計算量は \(\mathcal{O}((\log N)^2) \)？</li>
+<li>QFT の場合、周波数分布を得るには READ を何度も行わないといけなくて、その回数のオーダーは \(\mathcal{O}(2^m) \) とかになりそう？</li>
+</ul>
+<h4><a class="header" href="#7511" id="7511">7.5.1.1</a></h4>
+<ul>
+<li>一般に入力信号を QPU レジスタに載せるのは簡単ではない
+<ul>
+<li>計算量が必要な場合もあるので、 QFT による高速化がキャンセルしてしまう可能性もある</li>
+</ul>
+</li>
+<li>QFT の結果にアクセスするのが困難
+<ul>
+<li>結果の一部だけ見るだけで良いアプリケーションとかになら使える</li>
+</ul>
+</li>
+<li>ショアの因数分解アルゴリズムでは QFT が使われている</li>
+</ul>
+<h4><a class="header" href="#7512" id="7512">7.5.1.2</a></h4>
+<ul>
+<li>逆QFT <a href="https://oreilly-qc.github.io/?p=7-6">https://oreilly-qc.github.io/?p=7-6</a>
+<ul>
+<li>レジスタ準備するときにも使えそう</li>
+</ul>
+</li>
+<li>周波数変調 <a href="https://oreilly-qc.github.io/?p=7-7">https://oreilly-qc.github.io/?p=7-7</a>
+<ul>
+<li>QFT → 値を足す → invQFT で周波数変調できる</li>
+</ul>
+</li>
+</ul>
+<p>(ここまで 2021/09/04)</p>
+<h2><a class="header" href="#参考になりそうな記事" id="参考になりそうな記事">参考になりそうな記事</a></h2>
 <ul>
 <li><a href="https://qiita.com/N-H-Shimada/items/335580d208b6126f4c88">量子フーリエ変換 自分用まとめ - Qiita</a></li>
 </ul>
